@@ -5,6 +5,7 @@ A Yocto layer to start exploring the world of quantum safe cryptography
 
 - Add support for crypto-safe library implementations at [https://openquantumsafe.org/](https://openquantumsafe.org)
 - Add quantum-safe SSH daemon
+- Add quanutm-safe TLS support (?)
   
 - Samples…
 - encrypt and decrypt a key
