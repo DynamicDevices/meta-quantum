@@ -2,6 +2,19 @@
 
 A Yocto layer to start exploring the world of quantum safe cryptography
 
+## Build status
+
+| Branch | Support Status* | Status of Build & Tests |
+| ------ | --------------- | ----------------------- |
+| scarthgap | 	Long Term Support (until Apr. 2028) | [![scarthgap](https://img.shields.io/github/actions/workflow/status/dynamicdevices/meta-quantum-safe/CI_github.yml?branch=scarthgap&label=build%20%26%20test)](https://github.com/DynamicDevices/meta-mono/actions/workflows/CI_github.yml) |
+| nanbield | 	May 2024  | [![nanbield](https://img.shields.io/github/actions/workflow/status/dynamicdevices/meta-quantum-safe/CI_github.yml?branch=nanbield&label=build%20%26%20test)](https://github.com/DynamicDevices/meta-mono/actions/workflows/CI_github.yml) |
+| kirkstone | 	Long Term Support (minimum Apr. 2024)	 | [![master](https://img.shields.io/github/actions/workflow/status/dynamicdevices/meta-quantum-safe/CI_github.yml?branch=kirkstone&label=build%20%26%20test)](https://github.com/DynamicDevices/meta-mono/actions/workflows/CI_github.yml) |
+| dunfell | 	Supported - Long Term Support (until Apr. 2024) | [![dunfell](https://img.shields.io/github/actions/workflow/status/dynamicdevices/meta-mono/CI_github.yml?branch=dunfell&label=build%20%26%20test)](https://github.com/DynamicDevices/meta-quantum-safe/actions/workflows/CI_github.yml) |
+
+*support status as of 22/02/24, follows main Yocto release support schedule [here](https://wiki.yoctoproject.org/wiki/Releases)
+
+NOTE: 24/01/22 - This [patch](https://patchwork.openembedded.org/patch/171349/) is needed to Poky for branch morty, sumo (and perhaps others) to fix a gcc version build error.
+
 ## Open Quantum Safe Support
 
 We currently have support for the Open Quantum Safe project library [implementation](https://openquantumsafe.org)
