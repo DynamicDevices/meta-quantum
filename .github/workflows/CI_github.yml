@@ -1,0 +1,89 @@
+name: meta-quantum-safe
+
+on:
+  push:
+    branches:
+      - master
+      - master-next
+      - scarthgap
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: [self-hosted, linux, X64]
+    timeout-minutes: 600
+    container:
+      image: dynamicdevices/yocto-ci-build:latest
+      options: --privileged --platform linux/amd64  -v /dev/net/tun:/dev/net/tun -v /dev/kvm:/dev/kvm
+    strategy:
+      matrix:
+        liboqs_version: [0.10.1, git]
+        branch: [scarthgap]
+        arch: [x86-64, arm, arm64]
+    env:
+      name: build-and-test
+      LIBOQS_VERSION: ${{ matrix.liboqs_version }}
+      ARCH: ${{ matrix.arch }}
+      BRANCH: ${{ matrix.branch }}
+    steps:
+    - name: Checkout meta-quantum-safe
+      uses: actions/checkout@v4
+      with:
+        clean: false
+        path: ${{ matrix.branch }}/meta-quantum-safe
+    - name: Update repo poky
+      run: |
+        if [ ! -d ${BRANCH}/poky ]; then
+          git clone git://git.yoctoproject.org/poky -b ${BRANCH} ${BRANCH}/poky
+        else
+          cd ${BRANCH}/poky
+          git pull origin ${BRANCH}
+          cd ../..
+        fi
+    - name: Update repo meta-openembedded
+      run: |
+        if [ ! -d ${BRANCH}/meta-openembedded ]; then
+          git clone https://github.com/openembedded/meta-openembedded.git -b ${BRANCH} ${BRANCH}/meta-openembedded
+        else
+          cd ${BRANCH}/meta-openembedded
+          git pull origin ${BRANCH}
+          cd ../..
+        fi 
+    - name: Configuring
+      run: |
+        rm -f ${BRANCH}/build/conf/local.conf
+        rm -f ${BRANCH}/build/conf/bblayers.conf
+        . ./${BRANCH}/poky/oe-init-build-env ${BRANCH}/build
+
+        # Append custom variables for regenerated local.conf and bblayers.conf samples
+        echo "### Starting to configure local.conf and bblayers.conf ###"
+        echo "liboqs version: $LIBOQS_VERSION"
+
+        echo "BBLAYERS += '$GITHUB_WORKSPACE/${BRANCH}/meta-quantum-safe'" >> conf/bblayers.conf
+        echo "BBLAYERS += '$GITHUB_WORKSPACE/${BRANCH}/meta-openembedded/meta-oe'" >> conf/bblayers.conf
+
+        echo "MACHINE=\"qemu${ARCH}\"" >> conf/local.conf
+        echo "DL_DIR=\"$GITHUB_WORKSPACE/downloads\"" >> conf/local.conf
+
+        echo "PREFERRED_VERSION_liboqs=\"${LIBOQS_VERSION}\"" >> conf/local.conf
+
+        echo "INHERIT += \" rm_work \"" >> conf/local.conf
+        sed -i 's/#IMAGE_CLASSES += "testimage testsdk"/IMAGE_CLASSES += "testimage "/' conf/local.conf
+    - name: Cleaning
+      run: |
+        . ./${BRANCH}/poky/oe-init-build-env ${BRANCH}/build
+        bitbake -c cleanall test-image-qs
+    - name: Building
+      run: |
+        . ./${BRANCH}/poky/oe-init-build-env ${BRANCH}/build
+        bitbake -k test-image-qs
+    - name: Testing
+      run: |
+        . ./${BRANCH}/poky/oe-init-build-env ${BRANCH}/build
+        export TERM=linux
+        bitbake test-image-qs -c testimage
+    - name: Store artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-image-qs-${{ matrix.branch }}-${{ matrix.liboqs_version }}-${{ github.sha }}-${{ matrix.arch }}
+        path: ./${{ matrix.branch }}/build/tmp/deploy/images/qemu${{ matrix.arch }}/
