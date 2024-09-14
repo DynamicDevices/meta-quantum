@@ -2,6 +2,8 @@ name: meta-quantum-safe
 
 on:
   push:
+    paths-ignore:
+      - 'README.md'
     branches:
       - main
       - scarthgap
