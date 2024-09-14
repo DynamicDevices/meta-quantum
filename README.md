@@ -6,7 +6,9 @@ A Yocto layer to start exploring the world of quantum safe cryptography
 
 We currently have support for the Open Quantum Safe project library [implementation](https://openquantumsafe.org)
 
-This builds and runs on our Jaguar i.MX8M Mini based board and some performance statistics can be seen from the libOQJ tool `speed_sig`.
+The intent is to next add OpenSSL and MQTT support in the near future to enable simple examples for testing quantum-safe algorithms end-to-end across the internet.
+
+`libOQS` builds and runs on our Jaguar i.MX8M Mini based board and some performance statistics can be seen from the tool `speed_sig`.
 
 It should also build and run on other target boards supported by Yocto. If you use this layer please do feed back your results to us in order to add supported platforms to this README and hopefully generate some comparative performance figures.
 
