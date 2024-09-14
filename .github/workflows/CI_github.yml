@@ -3,8 +3,7 @@ name: meta-quantum-safe
 on:
   push:
     branches:
-      - master
-      - master-next
+      - main
       - scarthgap
   pull_request:
 
