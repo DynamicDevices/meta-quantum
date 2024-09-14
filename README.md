@@ -267,3 +267,9 @@ Ended at 2024-09-13 23:46:45o
 ## Maintainer
 
 Alex J Lennon <ajlennon@dynamicdevices.co.uk>
+
+## Licensing
+
+Note that this repository is licensed under the MIT license.
+
+`libOQS` is also licensed under the MIT license but sub-components are licensed under other licenses. For further details on this please see [here](https://openquantumsafe.org/liboqs/license.html)
