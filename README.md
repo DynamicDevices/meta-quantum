@@ -13,8 +13,6 @@ A Yocto layer to start exploring the world of quantum safe cryptography
 
 *support status as of 22/02/24, follows main Yocto release support schedule [here](https://wiki.yoctoproject.org/wiki/Releases)
 
-NOTE: 24/01/22 - This [patch](https://patchwork.openembedded.org/patch/171349/) is needed to Poky for branch morty, sumo (and perhaps others) to fix a gcc version build error.
-
 ## Open Quantum Safe Support
 
 We currently have support for the Open Quantum Safe project library [implementation](https://openquantumsafe.org)
