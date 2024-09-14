@@ -12,7 +12,7 @@ The intent is to next add OpenSSL and MQTT support in the near future to enable 
 
 It should also build and run on other target boards supported by Yocto. If you use this layer please do feed back your results to us in order to add supported platforms to this README and hopefully generate some comparative performance figures.
 
-To enable the library in your code (and optionally the tests) add this layer to your `conf/bblayers.conf`
+To enable the library in your build image (and optionally the tests) add this layer to your `conf/bblayers.conf`
 
 ```
 BSPLAYERS += " \
