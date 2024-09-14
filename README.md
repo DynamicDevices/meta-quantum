@@ -49,15 +49,28 @@ A quickstart on building Yocto images is [here](https://docs.yoctoproject.org/br
 ### Recipe Support
 
 - Add quantum-safe SSH daemon
-- Add quanutm-safe TLS support (?)
+
+@see https://openquantumsafe.org/applications/ssh.html
+
+- Add quantum-safe TLS support
+
+@see https://openquantumsafe.org/applications/tls.html
 
 - Make libOQJ OpenSSL support dependent on whether OpenSSL enabled in build.
+
+- Add webserver support
+
+@see https://openquantumsafe.org/applications/tls.html#https-servers
 
 ### Samples
 
 - Encrypt and decrypt a key
+
 - Take the QS encrypted key and encrypt a message with it (symmetric key)
+
 - Do an end to end demo over MQTT
+
+@see https://openquantumsafe.org/applications/tls.html#mqtt
 
 TODO: Ask what else is needed here?
 
