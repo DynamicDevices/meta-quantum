@@ -44,6 +44,10 @@ A quickstart on building Yocto images is [here](https://docs.yoctoproject.org/br
 
 ## TODO
 
+### Infrastructure
+
+- Get CI going for supported Yocto releases
+
 ### Support
 
 - Add quantum-safe SSH daemon
