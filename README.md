@@ -8,7 +8,7 @@ We currently have support for the Open Quantum Safe project library [implementat
 
 This builds and runs on our Jaguar i.MX8M Mini based board and some performance statistics can be seen from the libOQJ tool `speed_sig`.
 
-It should also build and run on other target boards supported by Yocto. If you 
+It should also build and run on other target boards supported by Yocto. If you use this layer please do feed back your results to us in order to add supported platforms to this README and hopefully generate some comparative performance figures.
 
 To enable the library in your code (and optionally the tests) add this layer to your `conf/bblayers.conf`
 
