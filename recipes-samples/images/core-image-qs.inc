@@ -1,5 +1,6 @@
 # Build up test image here
 IMAGE_INSTALL += "\
+        ptest-runner \
         liboqs \
 "
 
