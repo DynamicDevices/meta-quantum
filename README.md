@@ -46,7 +46,11 @@ A quickstart on building Yocto images is [here](https://docs.yoctoproject.org/br
 
 - Get CI going for supported Yocto releases
 
+- Integrate Open Quantum Safe tests within Yocto testing framework
+
 ### Recipe Support
+
+- Support liboQS [DONE]
 
 - Add quantum-safe SSH daemon
 
