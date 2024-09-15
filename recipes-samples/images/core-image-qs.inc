@@ -1,6 +1,7 @@
 # Build up test image here
 IMAGE_INSTALL += "\
         liboqs \
+        liboqs-ptest \
         liboqs-tests \
 "
 
