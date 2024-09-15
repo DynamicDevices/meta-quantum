@@ -4,5 +4,5 @@ IMAGE_INSTALL += "\
         liboqs-tests \
 "
 
-DEFAULT_TEST_SUITES:pn-${PN} = "ssh ping"
+DEFAULT_TEST_SUITES:pn-${PN} = "ssh ping ptest"
 
