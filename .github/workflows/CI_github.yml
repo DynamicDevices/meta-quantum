@@ -5,8 +5,7 @@ on:
     paths-ignore:
       - 'README.md'
     branches:
-      - main
-      - scarthgap
+      - kirkstone
   pull_request:
 
 jobs:
@@ -19,7 +18,7 @@ jobs:
     strategy:
       matrix:
         liboqs_version: [0.10.1, git]
-        branch: [scarthgap]
+        branch: [kirkstone]
         arch: [x86-64, arm64]
     env:
       name: build-and-test
