@@ -10,13 +10,8 @@ EXTRA_OECMAKE += " -DOQS_USE_OPENSSL=ON"
 
 S = "${WORKDIR}/git"
 
-PACKAGE_BEFORE_PN = "${PN}-tests"
-FILES:${PN}-tests = "${bindir}/*"
-RPROVIDES:${PN} += "${PN}-tests"
-RDEPENDS:${PN} += "${PN}-tests"
+FILES:${PN}-ptest += "${bindir}/*"
 
 DEPENDS = "openssl"
 
 inherit pkgconfig cmake ptest
-
-RDEPENDS:${PN}-ptest += "${PN}-tests"
