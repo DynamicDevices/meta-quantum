@@ -17,4 +17,6 @@ RDEPENDS:${PN} += "${PN}-tests"
 
 DEPENDS = "openssl"
 
-inherit pkgconfig cmake
+inherit pkgconfig cmake ptest
+
+RDEPENDS:${PN}-ptest += "${PN}-tests"
