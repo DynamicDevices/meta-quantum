@@ -1,8 +1,7 @@
 # Build up test image here
-IMAGE_INSTALL += "\
+        ptest-runner \
         liboqs \
         liboqs-ptest \
-        liboqs-tests \
 "
 
 DEFAULT_TEST_SUITES:pn-${PN} = "ssh ping ptest"
