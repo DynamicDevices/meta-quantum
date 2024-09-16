@@ -62,6 +62,7 @@ jobs:
 
         echo "BBLAYERS += '$GITHUB_WORKSPACE/${BRANCH}/meta-quantum-safe'" >> conf/bblayers.conf
         echo "BBLAYERS += '$GITHUB_WORKSPACE/${BRANCH}/meta-openembedded/meta-oe'" >> conf/bblayers.conf
+        echo "BBLAYERS += '$GITHUB_WORKSPACE/${BRANCH}/meta-openembedded/meta-python'" >> conf/bblayers.conf
 
         echo "MACHINE=\"qemu${ARCH}\"" >> conf/local.conf
         echo "DL_DIR=\"$GITHUB_WORKSPACE/downloads\"" >> conf/local.conf
@@ -88,3 +89,8 @@ jobs:
       with:
         name: test-image-qs-${{ matrix.branch }}-${{ matrix.liboqs_version }}-${{ github.sha }}-${{ matrix.arch }}
         path: ./${{ matrix.branch }}/build/tmp/deploy/images/qemu${{ matrix.arch }}/
+    - name: Store logs
+      uses: actions/upload-artifact@v4
+      with:
+        name: logs-${{ matrix.branch }}-${{ matrix.liboqs_version }}-${{ github.sha }}-${{ matrix.arch }}
+        path: ./${{ matrix.branch }}/build/*.log

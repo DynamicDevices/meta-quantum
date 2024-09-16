@@ -1,0 +1,17 @@
+#!/bin/bash
+python3 -m pytest --verbose --numprocesses=auto --ignore=scripts/copy_from_upstream/repos \
+  --ignore=tests/test_kat_all.py \
+  --ignore=tests/test_acvp_vectors.py \
+  --ignore=tests/test_alg_info.py \
+  --ignore=tests/test_binary.py \
+  --ignore=tests/test_cmdline.py \
+  --ignore=tests/test_code_conventions.py \
+  --ignore=tests/test_constant_time.py \
+  --ignore=tests/test_distbuild.py \
+  --ignore=tests/test_hash.py \
+  --ignore=tests/test_kat_all.py \
+  --ignore=tests/test_kat.py \
+  --ignore=tests/test_leaks.py \
+  --ignore=tests/test_mem.py \
+  --ignore=tests/test_speed.py \
+  --ignore=tests/test_vectors.py
