@@ -29,7 +29,7 @@ BSPLAYERS += " \
 "
 ```
 
-Then add the `liboqj` recipe to your image.
+Then add the `liboqs` recipe to your image.
 
 ```
 CORE_IMAGE_BASE_INSTALL += " \
