@@ -1,6 +1,5 @@
 # Build up test image here
 IMAGE_INSTALL += "\
-        find \
         python3-pyyaml \
         ptest-runner \
         liboqs \
