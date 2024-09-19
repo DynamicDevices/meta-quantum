@@ -17,7 +17,7 @@ jobs:
       options: --privileged --platform linux/amd64  -v /dev/net/tun:/dev/net/tun -v /dev/kvm:/dev/kvm
     strategy:
       matrix:
-        liboqs_version: [0.10.1, git]
+        liboqs_version: [git]
         branch: [kirkstone]
         arch: [x86-64, arm64]
     env:
@@ -48,7 +48,7 @@ jobs:
           cd ${BRANCH}/meta-openembedded
           git pull origin ${BRANCH}
           cd ../..
-        fi 
+        fi
     - name: Configuring
       run: |
         rm -f ${BRANCH}/build/conf/local.conf
