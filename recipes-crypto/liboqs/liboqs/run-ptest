@@ -1,6 +1,6 @@
 #!/bin/bash
 
-python3 -m pytest --verbose --numprocesses=auto --ignore=scripts/copy_from_upstream/repos
+python3 -m pytest --verbose --numprocesses=auto -t 2000 --ignore=scripts/copy_from_upstream/repos
 
 if [ $? -eq 0 ]; then
     echo "PASS: liboqs $?"
