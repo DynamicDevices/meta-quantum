@@ -29,24 +29,56 @@ BSPLAYERS += " \
 "
 ```
 
-Then add the `liboqj` recipe to your image
+Then add the `liboqj` recipe to your image.
 
 ```
 CORE_IMAGE_BASE_INSTALL += " \
    liboqs \
-   liboqs-tests \
 "
 ```
 
-A quickstart on building Yocto images is [here](https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html).
+You can also add the `liboqs` package tests which will run the tests from upstream on the device. To do this you'll need to enable ptest support in your build and include the `liboqs-ptest` package. Something like this:
+
+Set `IMAGE_CLASSES` in your `local.conf`
+
+```
+IMAGE_CLASSES += "testimage "
+```
+
+Then include needed packages and define test suites in your image.
+
+```
+IMAGE_INSTALL += "\
+        python3-pyyaml \
+        ptest-runner \
+        liboqs \
+        liboqs-ptest \
+"
+
+DEFAULT_TEST_SUITES:pn-${PN} = "ssh ping ptest"
+```
+
+Then you can run the `testimage` command against a QEMU target, say
+
+```
+bitbake my_image -c testimage
+```
+
+Or you can install image artifacts on a board and run locally
+
+```
+ptest-runner
+```
+
+NB. A quickstart on building Yocto images is [here](https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html).
 
 ## TODO
 
 ### Infrastructure
 
-- Get CI going for supported Yocto releases
+- Get CI going for supported Yocto releases [Done]
 
-- Integrate Open Quantum Safe tests within Yocto testing framework
+- Integrate Open Quantum Safe tests within Yocto testing framework [Mosty working - needs a shakedown]
 
 ### Recipe Support
 
