@@ -70,6 +70,8 @@ Or you can install image artifacts on a board and run locally
 ptest-runner
 ```
 
+You can also take a look at how I configure the CI to run these tests [here](https://github.com/DynamicDevices/meta-quantum-safe/blob/main/.github/workflows/CI_github.yml)
+
 NB. A quickstart on building Yocto images is [here](https://docs.yoctoproject.org/brief-yoctoprojectqs/index.html).
 
 ## TODO
