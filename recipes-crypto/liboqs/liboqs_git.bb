@@ -1,5 +1,6 @@
 require liboqs.inc
 
-ORG="dynamicdevices"
-BRANCH = "ajl/install-test-binaries"
-SRCREV = "efea5f3434438210aa3de8000cce0b8890346b8b"
+ORG="open-quantum-safe"
+BRANCH="main"
+SRCREV = "306140ebb577180e7bc704714e82949f7b9d33cf"
+

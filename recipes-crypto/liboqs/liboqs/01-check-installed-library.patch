@@ -1,0 +1,32 @@
+diff --git a/tests/test_binary.py b/tests/test_binary.py
+index 53e114df..4e295c5c 100644
+--- a/tests/test_binary.py
++++ b/tests/test_binary.py
+@@ -12,12 +12,12 @@ import glob
+ @helpers.filtered_test
+ @pytest.mark.skipif(sys.platform.startswith("win"), reason="Not needed on Windows")
+ def test_namespace():
+-    liboqs = glob.glob(helpers.get_current_build_dir_name()+'/lib/liboqs.*')[0]
+-    if liboqs == helpers.get_current_build_dir_name()+'/lib/liboqs.dylib':
++    liboqs = glob.glob('/usr/lib/liboqs.*')[0]
++    if liboqs == '/usr/lib/liboqs.dylib':
+         out = helpers.run_subprocess(
+             ['nm', '-g', liboqs]
+         )
+-    elif liboqs == helpers.get_current_build_dir_name()+'/lib/liboqs.so':
++    elif liboqs == '/lib/liboqs.so':
+         out = helpers.run_subprocess(
+             ['nm', '-D', liboqs]
+         )
+@@ -54,9 +54,9 @@ def test_namespace():
+ 
+ @helpers.filtered_test
+ @pytest.mark.skipif(not(sys.platform.startswith("linux")), reason="Only supported on Linux")
+-@pytest.mark.skipif(not(os.path.exists(helpers.get_current_build_dir_name()+'/lib/liboqs.so')), reason="Only supported on builds with a shared library")
++@pytest.mark.skipif(not(os.path.exists('/usr/lib/liboqs.so')), reason="Only supported on builds with a shared library")
+ def test_non_executable_stack():
+-    liboqs = helpers.get_current_build_dir_name()+'/lib/liboqs.so'
++    liboqs = '/usr/lib/liboqs.so'
+     out = helpers.run_subprocess(
+         ['readelf', '--wide', '--segments', liboqs]
+     )

@@ -93,3 +93,8 @@ jobs:
       with:
         name: logs-${{ matrix.branch }}-${{ matrix.liboqs_version }}-${{ github.sha }}-${{ matrix.arch }}
         path: ./${{ matrix.branch }}/build/*.log
+    - name: Store test logs
+      uses: actions/upload-artifact@v4
+      with:
+        name: test-logs-${{ matrix.branch }}-${{ matrix.liboqs_version }}-${{ github.sha }}-${{ matrix.arch }}
+        path: ./${{ matrix.branch }}/build/tmp/work/test-image-qs/1.0/temp/log.do_testimage
