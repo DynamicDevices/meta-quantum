@@ -11,6 +11,20 @@ A Yocto layer to start exploring the world of quantum safe cryptography
 
 *support status as of 14/09/24, follows main Yocto release support schedule [here](https://wiki.yoctoproject.org/wiki/Releases)
 
+## NIST Standards
+
+We're particularly interested in working with and supporting the new NIST standards for Quantum Safe operation on embedded systems
+
+| NIST Reference | Description |
+| ------ | --------------- |
+| FIPS203 | intended as the primary standard for general encryption. Among its advantages are comparatively small encryption keys that two parties can exchange easily, as well as its speed of operation. The standard is based on the CRYSTALS-Kyber algorithm, which has been renamed ML-KEM, short for Module-Lattice-Based Key-Encapsulation Mechanism.| |
+| FIPS204 | intended as the primary standard for protecting digital signatures. The standard uses the CRYSTALS-Dilithium algorithm, which has been renamed ML-DSA, short for Module-Lattice-Based Digital Signature Algorithm.| |
+| FIPS205 | also designed for digital signatures. The standard employs the Sphincs+ algorithm, which has been renamed SLH-DSA, short for Stateless Hash-Based Digital Signature Algorithm. The standard is based on a different math approach than ML-DSA, and it is intended as a backup method in case ML-DSA proves vulnerable.
+| |
+| FIPS206 (unreleased) | Similarly, when the draft FIPS 206 standard built around FALCON is released, the algorithm will be dubbed FN-DSA, short for FFT (fast-Fourier transform) over NTRU-Lattice-Based Digital Signature Algorithm. | |
+
+ref: https://www.nist.gov/news-events/news/2024/08/nist-releases-first-3-finalized-post-quantum-encryption-standards
+
 ## Open Quantum Safe Support
 
 We currently have support for the Open Quantum Safe project library [implementation](https://openquantumsafe.org)
