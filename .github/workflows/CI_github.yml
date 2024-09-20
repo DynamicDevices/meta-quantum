@@ -68,6 +68,7 @@ jobs:
         echo "DL_DIR=\"$GITHUB_WORKSPACE/downloads\"" >> conf/local.conf
 
         echo "PREFERRED_VERSION_liboqs=\"${LIBOQS_VERSION}\"" >> conf/local.conf
+        echo "PREFERRED_VERSION_liboqs-ptest=\"${LIBOQS_VERSION}\"" >> conf/local.conf
 
         echo "INHERIT += \" rm_work \"" >> conf/local.conf
         sed -i 's/#IMAGE_CLASSES += "testimage testsdk"/IMAGE_CLASSES += "testimage "/' conf/local.conf
